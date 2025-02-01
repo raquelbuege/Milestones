@@ -13,7 +13,7 @@ class _ExpansionTileExampleState extends State<ExpansionTileExample> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Center(
           child: Container(
               decoration: BoxDecoration(
