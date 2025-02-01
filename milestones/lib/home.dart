@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:milestones/userVM.dart';
 import 'package:provider/provider.dart';
+import 'package:milestones/widgets/progressbar.dart';
 import 'circleprogress.dart';
 import 'expandedcontainer.dart';
-import 'badges.dart';
+import 'package:milestones/widgets/badges.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -34,7 +35,7 @@ class Home extends StatelessWidget {
                   ),
                   // Icon overlayed on top of the progress bar (not inside it)
                   Positioned(
-                    left: 56 / 100 * 400 - 16, // Position based on progress
+                    left: user.ageProg / 100 * 400 - 16, // Position based on progress
                     top: -5, // Adjust to place the icon above the bar
                     child: Icon(
                       Icons.circle, // Replace with your desired icon
@@ -44,14 +45,14 @@ class Home extends StatelessWidget {
                   ),
                 ],
               )),
-          const Padding(
+          Padding(
               padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
                   // Linear Progress Bar
                   LinearProgressIndicator(
-                    value: 30 / 100, // Your progress value
+                    value: (user.totalProgress / 100), // Your progress value
                     minHeight: 15, // Height of the progress bar
                     backgroundColor: Colors.black12,
                     valueColor: AlwaysStoppedAnimation(
@@ -59,7 +60,7 @@ class Home extends StatelessWidget {
                   ),
                   // Icon overlayed on top of the progress bar (not inside it)
                   Positioned(
-                    left: 55 / 100 * 400 - 16, // Position based on progress
+                    left: user.totalProgress / 100 * 400 - 16, // Position based on progress
                     top: -13, // Adjust to place the icon above the bar
                     child: Icon(
                       Icons.star, // Replace with your desired icon
@@ -71,40 +72,9 @@ class Home extends StatelessWidget {
                 ],
               )),
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 250, 20, 0),
-            child: Container(
-            color: Colors.amberAccent,
-            width: 380,
-            height: 100,
-            child: ListView(
-              // This next line does the trick.
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Container(
-                  width: 160,
-                  height: 50,
-                  color: Colors.red,
-                ),
-                Container(
-                  width: 160,
-                  color: Colors.blue,
-                ),
-                Container(
-                  width: 160,
-                  color: Colors.green,
-                ),
-                Container(
-                  width: 160,
-                  color: Colors.yellow,
-                ),
-                Container(
-                  width: 160,
-                  color: Colors.orange,
-                ),
-              ],
-            ),
-          )
-          ),
+                    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+              child: Badges()
+               ),
         ],
       ),
     );
