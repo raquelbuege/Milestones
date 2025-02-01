@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/checkBox.dart';
 import '../widgets/progressBar.dart';
+import '../widgets/badges.dart';
+
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -8,12 +10,13 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromARGB(255, 255, 255, 255),
-      child: Padding(
+      child: ListView(children: [
+        Padding(
           padding: EdgeInsets.fromLTRB(0, 0, 0, 40),
           child: Center(
               child: Container(
             width: 380,
-            height: 700,
+            height: 1000,
             decoration: BoxDecoration(
               borderRadius:
                   BorderRadius.circular(12), // Optional rounded corners
@@ -68,6 +71,13 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
+              Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                    child: ProgressBar()),
+               Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+              child: Badges()
+               ),
                 Center(
                     child: Padding(
                   padding: EdgeInsets.fromLTRB(0, 25, 00, 0),
@@ -152,12 +162,14 @@ class Profile extends StatelessWidget {
                         ),
                       )),
                 )),
-                Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-                    child: ProgressBar()),
+                
+                     
+            
               ],
             ),
-          ))),
+          )),
+        )
+      ]),
     );
   }
 }
