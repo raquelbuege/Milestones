@@ -17,6 +17,7 @@ class _NavbarState extends State<Navbar> {
     const Home(),
     const Tasks(),
     const Profile(),
+     const Profile(),
   ];
 
   @override
@@ -31,9 +32,9 @@ class _NavbarState extends State<Navbar> {
 
   Container buildMyNavBar(BuildContext context) {
     return Container(
-      height: 60,
+      height: 70,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Color(0xFF36395F),
       
       ),
       child: Row(
@@ -48,14 +49,14 @@ class _NavbarState extends State<Navbar> {
             },
             icon: pageIndex == 0
                 ? const Icon(
-                    Icons.home_filled,
-                    color: Colors.white,
-                    size: 35,
+                    Icons.house_rounded ,
+                    color:  Color(0xFFF0E9DA),
+                    size: 45,
                   )
                 : const Icon(
-                    Icons.home_outlined,
-                    color: Colors.white,
-                    size: 35,
+                    Icons.house_rounded ,
+                    color:Color(0xFF98A6D4),
+                    size: 45,
                   ),
           ),
           IconButton(
@@ -68,17 +69,16 @@ class _NavbarState extends State<Navbar> {
             icon: pageIndex == 1
                 ? const Icon(
                     Icons.check_box_rounded,
-                    color: Colors.white,
-                    size: 35,
+                    color:  Color(0xFFF0E9DA),
+                    size: 45,
                   )
                 : const Icon(
-                    Icons.check_box_outlined,
-                    color: Colors.white,
-                    size: 35,
+                    Icons.check_box_rounded,
+                    color:  Color(0xFF98A6D4),
+                    size:45,
                   ),
           ),
- 
-          IconButton(
+              IconButton(
             enableFeedback: false,
             onPressed: () {
               setState(() {
@@ -87,14 +87,34 @@ class _NavbarState extends State<Navbar> {
             },
             icon: pageIndex == 2
                 ? const Icon(
-                    Icons.person,
-                    color: Colors.white,
-                    size: 35,
+                    Icons.monetization_on_rounded,
+                    color:  Color(0xFFF0E9DA),
+                    size: 45,
                   )
                 : const Icon(
-                    Icons.person_outline,
-                    color: Colors.white,
-                    size: 35,
+                    Icons.monetization_on_rounded,
+                    color:  Color(0xFF98A6D4),
+                    size:45,
+                  ),
+          ),
+ 
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 3;
+              });
+            },
+            icon: pageIndex == 3
+                ? const Icon(
+                    Icons.person,
+                    color:  Color(0xFFF0E9DA),
+                    size: 45,
+                  )
+                : const Icon(
+                    Icons.person,
+                    color:  Color(0xFF98A6D4),
+                    size: 45,
                   ),
           ),
         ],
