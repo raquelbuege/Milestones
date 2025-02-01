@@ -16,7 +16,11 @@ class _EndlessScrollState extends State<Endlessscroll>
       width: 400,
       height: 200,
       clipBehavior: Clip.hardEdge,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: Colors.transparent), // Remove the border or stroke
+        borderRadius: BorderRadius.circular(12), // Optional rounded corners
+      ),
       child: OverflowBox(
         maxWidth: 400,
         child: SlideTransition(
@@ -25,14 +29,11 @@ class _EndlessScrollState extends State<Endlessscroll>
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
-                'assets/images/bg_1.png',
-                width: 400,
-                height: 200,
+                'assets/images/fixed.png',
+                // width: 800,
               ),
               Image.asset(
-                'assets/images/bg_2.png',
-                width: 400,
-                height: 200,
+                'assets/images/fixed.png',
               ),
             ],
           ),
@@ -46,7 +47,7 @@ class _EndlessScrollState extends State<Endlessscroll>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 7),
+      duration: const Duration(seconds: 10),
     )..repeat();
 
     _animation = Tween<Offset>(
