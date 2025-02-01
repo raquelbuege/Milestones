@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:milestones/userVM.dart';
+import 'package:provider/provider.dart';
 import 'circleprogress.dart';
 import 'expandedcontainer.dart';
 import 'badges.dart';
@@ -8,19 +10,23 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Access UserModel from UserViewModel using Provider
+    final userViewModel = Provider.of<UserViewModel>(context);
+    final user = userViewModel.user; // Get user data
+
     return Container(
       color: const Color(0xffC4DFCB),
       child: Column(
         children: [
           const ExpansionTileExample(),
-          const Padding(
+          Padding(
               padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
                   // Linear Progress Bar
                   LinearProgressIndicator(
-                    value: 60 / 100, // Your progress value
+                    value: (user.ageProg /100), // Your progress value
                     minHeight: 15, // Height of the progress bar
                     backgroundColor: Colors.black12,
                     valueColor: AlwaysStoppedAnimation(
@@ -45,7 +51,7 @@ class Home extends StatelessWidget {
                 children: [
                   // Linear Progress Bar
                   LinearProgressIndicator(
-                    value: 60 / 100, // Your progress value
+                    value: 30 / 100, // Your progress value
                     minHeight: 15, // Height of the progress bar
                     backgroundColor: Colors.black12,
                     valueColor: AlwaysStoppedAnimation(
