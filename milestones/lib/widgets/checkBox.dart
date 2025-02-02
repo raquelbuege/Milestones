@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CheckboxExample extends StatefulWidget {
-  const CheckboxExample({super.key});
+ final bool initialChecked; // Initial state for the checkbox
+  final ValueChanged<bool> onChanged;
+  
+
+  const CheckboxExample({super.key, required this.initialChecked,  required this.onChanged}); // Accept initial checked value
+
 
   @override
   State<CheckboxExample> createState() => _CheckboxExampleState();
 }
 
 class _CheckboxExampleState extends State<CheckboxExample> {
-  bool isChecked = false;
+   late bool isChecked;
+  
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the state with the passed value
+    isChecked = widget.initialChecked;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +41,7 @@ class _CheckboxExampleState extends State<CheckboxExample> {
             setState(() {
               isChecked = value!;
             });
+              widget.onChanged(isChecked);
           },
           focusColor: Colors.transparent, // Removes focus color
           hoverColor: Colors.transparent, // Removes hover color

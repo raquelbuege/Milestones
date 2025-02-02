@@ -10,97 +10,96 @@ class Badges extends StatefulWidget {
 class _BadgesState extends State<Badges> {
   @override
   Widget build(BuildContext context) {
-    return  Container(
-                        width: 325,
-                        height: 250,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              12), // Optional rounded corners
-                          color: Color(0xFFF0E9DA), // Background color
-                        ),
-                        child: Column(
-                          children: [
-                            const Padding(
-                                padding: EdgeInsets.fromLTRB(0, 20, 180, 20),
-                                child: Text(
-                                    style: TextStyle(
-                                      color: Color(0xFF90B494),
-                                      fontSize: 35,
-                                    ),
-                                    'Badges')),
-                            Container(
-
-                              width: 310,
-                              height: 120,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    12), // Optional rounded corners
-                                color: Color.fromARGB(
-                                    255, 255, 255, 255), // Background color
-                              ),
-                              child:
-                              Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                child: SizedBox(
-                                width: 380,
-                                height: 1,
-                                child: ListView(
-                                  // This next line does the trick.
-                                  scrollDirection: Axis.horizontal,
-                                  children: <Widget>[
-                                    Padding(
-                                       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                       child: 
-                                    SizedBox(
-                                      width: 160,
-                                      height: 1,
-                                      child: Container(
-                                        width: 100,
-                                        height: 1,
-                                        color: const Color.fromARGB(
-                                            255, 255, 59, 203),
-                                      ),
-                                    ),
-                                    ), 
-                                    Padding(
-                                       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                       child: 
-                                    SizedBox(
-                                      width: 100,
-                                      height: 1,
-                                      child: Container(
-                                        width: 160,
-                                        height: 1,
-                                        color: const Color.fromARGB(
-                                            255, 255, 59, 203),
-                                      ),
-                                    ),
-                                    ),
-
-                                   
-                                  Padding(
-                                       padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                       child: 
-                                    SizedBox(
-                                      width: 100,
-                                      height: 1,
-                                      child: Container(
-                                        width: 100,
-                                        height: 1,
-                                        color: const Color.fromARGB(
-                                            255, 255, 59, 203),
-                                      ),
-                                    ),
-                                    )
-                                  
-                                   
-                                  ],
-                                ),
-                              ),
-                              ),
-                            ),
-                          ],
-                        )
+    return Container(
+      padding: const EdgeInsets.fromLTRB(10, 3, 10, 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: const Color.fromARGB(255, 197, 134, 134), //Color.fromARGB(255, 170, 88, 100),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            width: 300,
+            height: 40,
+            child: Text(
+              "Badges",
+              style: TextStyle(
+                fontFamily: 'MadeTommy',
+                fontSize: 26,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            // Added this to constrain ListView height
+            height: 145, // Adjust this value based on your needs
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: const Color.fromARGB(255, 253, 239, 210),
+                  ),
+                  child: Image.asset(
+                    "assets/images/emergencyFundBadge_2.png",
+                    width: 145,
+                    height: 145,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color.fromARGB(255, 253, 239, 210),
+                    ),
+                    child: Image.asset(
+                      "assets/images/creditBadge_2.png",
+                        width: 125,
+                        height: 125,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color.fromARGB(255, 253, 239, 210),
+                    ),
+                    child: Image.asset(
+                      "assets/images/retirementSavingBadge.png",
+                        width: 150,
+                        height: 150,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color.fromARGB(255, 253, 239, 210),
+                    ),
+                    child: Image.asset(
+                      "assets/images/investingBadge_2.png",
+                        width: 150,
+                        height: 150,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:milestones/Profile.dart';
+// import 'package:milestones/task_screens/buildingCredit.dart';
 import 'package:milestones/home.dart';
 import 'package:milestones/tasks.dart';
 
@@ -17,14 +18,13 @@ class _NavbarState extends State<Navbar> {
     const Home(),
     const Tasks(),
     const Profile(),
-     const Profile(),
+    const Profile(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffC4DFCB),
-
+      backgroundColor: const Color.fromARGB(255, 197, 134, 134), //Color(0xffC4DFCB),
       body: pages[pageIndex],
       bottomNavigationBar: buildMyNavBar(context),
     );
@@ -34,8 +34,7 @@ class _NavbarState extends State<Navbar> {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: Color(0xFF36395F),
-      
+        color: Color.fromARGB(255, 197, 134, 134), //Color(0xFFAA5864),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -49,13 +48,13 @@ class _NavbarState extends State<Navbar> {
             },
             icon: pageIndex == 0
                 ? const Icon(
-                    Icons.house_rounded ,
-                    color:  Color(0xFFF0E9DA),
+                    Icons.house_rounded,
+                    color: Color(0xFFFDEFE2),
                     size: 45,
                   )
                 : const Icon(
-                    Icons.house_rounded ,
-                    color:Color(0xFF98A6D4),
+                    Icons.house_rounded,
+                    color: Color.fromARGB(255, 170, 88, 100),//Color(0xFFC58686),
                     size: 45,
                   ),
           ),
@@ -69,16 +68,16 @@ class _NavbarState extends State<Navbar> {
             icon: pageIndex == 1
                 ? const Icon(
                     Icons.check_box_rounded,
-                    color:  Color(0xFFF0E9DA),
+                    color: Color(0xFFFDEFE2),
                     size: 45,
                   )
                 : const Icon(
                     Icons.check_box_rounded,
-                    color:  Color(0xFF98A6D4),
-                    size:45,
+                    color: Color.fromARGB(255, 170, 88, 100), //Color(0xFFC58686),
+                    size: 45,
                   ),
           ),
-              IconButton(
+          IconButton(
             enableFeedback: false,
             onPressed: () {
               setState(() {
@@ -88,16 +87,15 @@ class _NavbarState extends State<Navbar> {
             icon: pageIndex == 2
                 ? const Icon(
                     Icons.monetization_on_rounded,
-                    color:  Color(0xFFF0E9DA),
+                    color: Color(0xFFFDEFE2),
                     size: 45,
                   )
                 : const Icon(
                     Icons.monetization_on_rounded,
-                    color:  Color(0xFF98A6D4),
-                    size:45,
+                    color:Color.fromARGB(255, 170, 88, 100),//Color(0xFFC58686),
+                    size: 45,
                   ),
           ),
- 
           IconButton(
             enableFeedback: false,
             onPressed: () {
@@ -108,12 +106,12 @@ class _NavbarState extends State<Navbar> {
             icon: pageIndex == 3
                 ? const Icon(
                     Icons.person,
-                    color:  Color(0xFFF0E9DA),
+                    color: Color(0xFFFDEFE2),
                     size: 45,
                   )
                 : const Icon(
                     Icons.person,
-                    color:  Color(0xFF98A6D4),
+                    color: Color.fromARGB(255, 170, 88, 100),//Color(0xFFC58686),
                     size: 45,
                   ),
           ),
