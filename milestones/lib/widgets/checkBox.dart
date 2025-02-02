@@ -48,3 +48,15 @@ class _CheckboxExampleState extends State<CheckboxExample> {
         ));
   }
 }
+
+
+class CheckmarkNotifier extends ChangeNotifier {
+  // This variable holds the state of the checkmark
+  bool isChecked = false;
+
+  // This function updates the value of isChecked and notifies listeners
+  void toggleCheckmark() {
+    isChecked = !isChecked; // Toggle the checkmark's state
+    notifyListeners(); // Notify listeners to rebuild UI
+  }
+}

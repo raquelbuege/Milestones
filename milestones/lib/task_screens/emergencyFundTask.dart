@@ -82,7 +82,7 @@ final List<String> bulletPoints2 = [
                           onPressed: () { Navigator.pop(context);},
                           icon: Icon(
                             Icons.arrow_back_ios_rounded,
-                            color:Color(0xFFFDEFE2),
+                            color:const Color.fromARGB(255, 197, 134, 134), //Color(0xffC4DFCB),
                             size: 45,
                           ))),
                   Container(

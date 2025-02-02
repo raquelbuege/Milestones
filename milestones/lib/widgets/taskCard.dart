@@ -78,13 +78,16 @@ class _TaskCardState extends State<TaskCard> {
                   tween: Tween<double>(begin: 0.0, end: progressVal()),
                   duration: Duration(seconds: 1), // Duration for the animation
                   builder: (context, value, child) {
-                    return LinearProgressIndicator(
+                    return  ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child:LinearProgressIndicator(
                       value: value, // The animated value
                       minHeight: 26, // Height of the progress bar
                       backgroundColor: Color.fromARGB(
                           255, 233, 221, 218), // Light background color
                       valueColor: AlwaysStoppedAnimation(
                           Color(0xFF724565)), // Progress color
+                    )
                     );
                   },
                 ),
