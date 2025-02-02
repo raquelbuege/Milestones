@@ -1,82 +1,174 @@
 import 'package:flutter/material.dart';
-import 'package:milestones/userVM.dart';
-import 'package:provider/provider.dart';
-import 'package:milestones/widgets/progressbar.dart';
-import 'circleprogress.dart';
-import 'expandedcontainer.dart';
+// import 'package:milestones/userVM.dart';
+// import 'package:provider/provider.dart';
+// import 'circleprogress.dart';
+
+import 'package:milestones/widgets/expandedcontainer.dart';
 import 'package:milestones/widgets/badges.dart';
+import 'package:milestones/widgets/agebar.dart';
+import 'package:milestones/widgets/gif.dart';
+import 'package:milestones/widgets/progressbar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // Access UserModel from UserViewModel using Provider
-    final userViewModel = Provider.of<UserViewModel>(context);
-    final user = userViewModel.user; // Get user data
-
-    return Container(
-      color: const Color(0xffC4DFCB),
-      child: Column(
-        children: [
-          const ExpansionTileExample(),
-          Padding(
-              padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  // Linear Progress Bar
-                  LinearProgressIndicator(
-                    value: (user.ageProg /100), // Your progress value
-                    minHeight: 15, // Height of the progress bar
-                    backgroundColor: Colors.black12,
-                    valueColor: AlwaysStoppedAnimation(
-                        Color.fromARGB(255, 255, 255, 255)),
-                  ),
-                  // Icon overlayed on top of the progress bar (not inside it)
-                  Positioned(
-                    left: user.ageProg / 100 * 400 - 16, // Position based on progress
-                    top: -5, // Adjust to place the icon above the bar
-                    child: Icon(
-                      Icons.circle, // Replace with your desired icon
-                      color: Color.fromARGB(255, 0, 0, 0), // Set the icon color
-                      size: 24, // Adjust icon size
-                    ),
-                  ),
-                ],
-              )),
-          Padding(
-              padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  // Linear Progress Bar
-                  LinearProgressIndicator(
-                    value: (user.totalProgress / 100), // Your progress value
-                    minHeight: 15, // Height of the progress bar
-                    backgroundColor: Colors.black12,
-                    valueColor: AlwaysStoppedAnimation(
-                        Color.fromARGB(255, 255, 255, 255)),
-                  ),
-                  // Icon overlayed on top of the progress bar (not inside it)
-                  Positioned(
-                    left: user.totalProgress / 100 * 400 - 16, // Position based on progress
-                    top: -13, // Adjust to place the icon above the bar
-                    child: Icon(
-                      Icons.star, // Replace with your desired icon
-                      color: Color.fromARGB(
-                          255, 235, 201, 9), // Set the icon color
-                      size: 38, // Adjust icon size
-                    ),
-                  ),
-                ],
-              )),
-          Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-              child: Badges()
-               ),
-        ],
-      ),
-    );
+Widget build(BuildContext context) {
+  return SingleChildScrollView(
+    child: Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Column(
+          children: [
+            Container(
+              width: double.infinity,
+              color: Color.fromARGB(255, 253, 239, 226),
+              child: Column(
+                //mainAxisSize: MainAxisSize.min,
+                  children: [
+                      const SizedBox(height: 40,), //spacing before 'young professional'
+                      Column(
+                        children: [
+                          const ExpansionTileExample(), 
+                          const SizedBox(height: 20), //spacing between 'young professional' and progress bars
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Color.fromARGB(255, 197, 134, 134),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                                child: const Column(
+                                  children: [
+                                    AgeBar(),
+                                    SizedBox(height: 50),
+                                    ProgressBar(),
+                                  ],
+                                ),
+                              ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 110),
+                    Container(
+                      width: double.infinity,
+                      child: gif(),
+                    ) 
+                  ],
+                ),
+              ),
+            // Container(
+            //   width: double.infinity,
+            //   child: gif(),
+            // ),
+            Container(
+              width: double.infinity,
+              color: Color.fromARGB(255, 32, 21, 21),
+              child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 40, 20, 70),
+              child: Badges(),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
   }
 }
+
+  // return SingleChildScrollView(
+  //   child: Column(
+  //     crossAxisAlignment: CrossAxisAlignment.stretch,
+  //     children: [
+  //       // First half background
+  //       Container(
+  //         width: double.infinity,
+  //         color: Color.fromARGB(255, 253, 239, 226),
+  //         child: Column( 
+  //           children: [
+  //               const SizedBox(height: 40,), //spacing before 'young professional'
+  //               Column(
+  //                 children: [
+  //                   const ExpansionTileExample(), 
+  //                   const SizedBox(height: 20), //spacing between 'young professional' and progress bars
+  //                   Padding(
+  //                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+  //                     child: Container(
+  //                         decoration: BoxDecoration(
+  //                           borderRadius: BorderRadius.circular(12),
+  //                           color: Color.fromARGB(255, 197, 134, 134),
+  //                         ),
+  //                         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+  //                         child: const Column(
+  //                           children: [
+  //                             AgeBar(),
+  //                             SizedBox(height: 50),
+  //                             ProgressBar(),
+  //                           ],
+  //                         ),
+  //                       ),
+  //                   )
+  //                 ],
+  //               ),
+  //               const SizedBox(height: 60),
+  //             Container(
+  //               width: double.infinity,
+  //               child: gif(),
+  //             ) 
+  //           ],
+  //         ),
+  //       ),
+  //       // Second half background
+  //       Container(
+  //         width: double.infinity,
+  //         color: Color.fromARGB(255, 32, 21, 21),
+  //         child: Padding(
+  //           padding: const EdgeInsets.fromLTRB(20, 20, 20, 70),
+  //           child: Badges(),
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
+// }
+// }
+
+    // Access UserModel from UserViewModel using Provider
+    // final userViewModel = Provider.of<UserViewModel>(context);
+    // final user = userViewModel.user; // Get user data
+
+    // return Container(
+    //   color: const Color(0xffC4DFCB),
+    //   child: ListView(
+    //     children: [
+    //       const ExpansionTileExample(),
+    //       Padding(
+    //         padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+    //           child: Container(
+    //             decoration: BoxDecoration(
+    //               borderRadius: BorderRadius.circular(12), // Optional rounded corners
+    //               color: Color.fromARGB(255, 197, 134, 134), // Background color
+    //             ),
+    //             child: const Padding(
+    //               padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
+    //               child: Column(
+    //                 children: [
+    //                   AgeBar(),
+    //                   const SizedBox(height: 50),
+    //                   ProgressBar(),
+    //                 ]
+    //               ),
+    //             ),
+    //           )
+    //       ),
+    //       Padding(
+    //                 padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+    //           child: Badges()
+    //            ),
+    //     ],
+    //   ),
+    // );
+
+

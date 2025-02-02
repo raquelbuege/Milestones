@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   arc_progress_bar_new: ^1.0.4
   provider: ^6.1.2
+  readmore: ^3.0.0
+  gif_view: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,23 @@ flutter:
   assets:
     - assets/images/fixed.png
     - assets/images/fish_pattern.png
+    - assets/images/creditBadge_2.png
+    - assets/images/emergencyFundBadge_2.png
+    - assets/images/investingBadge_2.png
+    - assets/images/retirementSavingBadge.png
+    - assets/young-prof-background.gif
+
+  fonts:
+    - family: MadeTommy
+      fonts:
+        - asset: assets/fonts/MADETOMMYBlack.otf
+    - family: CreatoDisplay
+      fonts:
+        - asset: assets/fonts/CreatoDisplay-Regular.otf
+          weight: 400
+        - asset: assets/fonts/CreatoDisplay-Medium.otf
+          weight: 500
+          style: italic
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

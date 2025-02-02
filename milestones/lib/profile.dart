@@ -3,8 +3,22 @@ import '../widgets/checkBox.dart';
 import '../widgets/progressBar.dart';
 import '../widgets/badges.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  // Declare the checkbox state here
+  bool isChecked = false;
+
+  // This function will be passed down to the child to update the state
+  void _updateCheckboxState(bool? newValue) {
+    setState(() {
+      isChecked = newValue ?? false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +29,11 @@ class Profile extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(0, 0, 0, 40),
           child: Center(
               child: Container(
-            width: 380,
-            height: 1000,
+            width: 450,
+            height: 1300,
             decoration: BoxDecoration(
-              borderRadius:
-                  BorderRadius.circular(12), // Optional rounded corners
-              color: Color(0xFF1B1C3A), // Background color
+              // Optional rounded corners
+              color: Color(0xFF201515), // Background color
             ),
             child: Column(
               children: [
@@ -28,7 +41,7 @@ class Profile extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(20, 40, 200, 0),
                     child: Text(
                         style: TextStyle(
-                            color: Color(0xFF98A6D4),
+                            color: Color(0xFFC58686),
                             fontSize: 42,
                             fontWeight: FontWeight.bold),
                         'Profile')),
@@ -47,7 +60,7 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(0, 10, 00, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFF0E9DA),
+                                  color: Color(0xFFFDEFE2),
                                   fontSize: 20,
                                 ),
                                 'Name: Dorothy Crow')),
@@ -55,7 +68,7 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(0, 10, 120, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFF0E9DA),
+                                  color: Color(0xFFFDEFE2),
                                   fontSize: 20,
                                 ),
                                 'Age: 21')),
@@ -63,7 +76,7 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(0, 10, 45, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFF0E9DA),
+                                  color: Color(0xFFFDEFE2),
                                   fontSize: 20,
                                 ),
                                 'Gender: Woman'))
@@ -71,32 +84,43 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
-              Padding(
+                Padding(
                     padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
                     child: ProgressBar()),
-               Padding(
+                Padding(
                     padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-              child: Badges()
-               ),
+                    child: Badges()),
                 Center(
                     child: Padding(
                   padding: EdgeInsets.fromLTRB(0, 25, 00, 0),
                   child: Container(
                       width: 340,
-                      height: 300,
+                      height: 350,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                             12), // Optional rounded corners
-                        color: Color(0xFFF0E9DA), // Background color
+                        color:Color(0xFFFDEFE2), // Background color
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.fromLTRB(30, 20, 00, 0),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 00, 0),
                         child: Column(
                           children: [
+          Text(
+                        style: TextStyle(
+                            color: Color(0xFFC58686),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        'Financial Goals'),   
+
                             Row(
                               children: [
-                                CheckboxExample(),
-                                Padding(
+                                   CheckboxExample(
+                                  // Pass the state down
+                                  initialChecked: isChecked,
+                                  onChanged:
+                                      _updateCheckboxState, // Pass the function to update state
+                                ),
+                                const Padding(
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
@@ -108,8 +132,13 @@ class Profile extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                CheckboxExample(),
-                                Padding(
+                                   CheckboxExample(
+                                  // Pass the state down
+                                  initialChecked: isChecked,
+                                  onChanged:
+                                      _updateCheckboxState, // Pass the function to update state
+                                ),
+                                const Padding(
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
@@ -121,8 +150,13 @@ class Profile extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                CheckboxExample(),
-                                Padding(
+                                CheckboxExample(
+                                  // Pass the state down
+                                  initialChecked: isChecked,
+                                  onChanged:
+                                      _updateCheckboxState, // Pass the function to update state
+                                ),
+                                const Padding(
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
@@ -134,8 +168,13 @@ class Profile extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                CheckboxExample(),
-                                Padding(
+                                   CheckboxExample(
+                                  // Pass the state down
+                                  initialChecked: isChecked,
+                                  onChanged:
+                                      _updateCheckboxState, // Pass the function to update state
+                                ),
+                                const Padding(
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
@@ -147,8 +186,13 @@ class Profile extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                CheckboxExample(),
-                                Padding(
+                                  CheckboxExample(
+                                  // Pass the state down
+                                  initialChecked: isChecked,
+                                  onChanged:
+                                      _updateCheckboxState, // Pass the function to update state
+                                ),
+                                const Padding(
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
@@ -162,9 +206,6 @@ class Profile extends StatelessWidget {
                         ),
                       )),
                 )),
-                
-                     
-            
               ],
             ),
           )),

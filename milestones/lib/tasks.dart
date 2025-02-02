@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:milestones/home.dart';
+import 'package:milestones/task_screens/buildCredit.dart';
+import 'package:milestones/task_screens/emergencyFundTask.dart';
+import 'package:milestones/task_screens/investingTask.dart';
+import 'package:milestones/task_screens/retirementTask.dart';
+import 'package:milestones/widgets/taskTap.dart';
 import 'circleprogress.dart';
 import 'package:arc_progress_bar_new/arc_progress_bar_new.dart';
 
@@ -7,8 +13,12 @@ class Tasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: const Color(0xffC4DFCB),
+    return ListView(
+      children: [
+        Container(
+            width: 600,
+            height: 30000,
+            color: Color(0xFF201515),
         child: Column(
           children: [
             const Padding(
@@ -37,217 +47,32 @@ class Tasks extends StatelessWidget {
                     ),
                   ],
                 )),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
-              child: Container(
-                width: 350,
-                height: 100,
-                  decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
+               TaskTap(
+                  title: "Build Credit",
+                  progressValue: 1.0,
+                  screen: CreditTask()
                 ),
-                child: const Row(children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.redAccent,
-                      valueColor: AlwaysStoppedAnimation(Colors.green),
-                      strokeWidth: 10,
-                      value: 0.7,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Text(
-                      "Credit Building",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      size: 30,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
+              TaskTap(
+                  title: "Emergency \nFund",
+                  progressValue: 1.0,
+                  screen: Emergencyfundtask()
                 ),
-                width: 350,
-                height: 100,
-                child: const Row(children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.redAccent,
-                      valueColor: AlwaysStoppedAnimation(Colors.green),
-                      strokeWidth: 10,
-                      value: 0.7,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Text(
-                      "Credit Building",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      size: 30,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-              child: Container(
-                width: 350,
-                height: 100,
-                  decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
+                TaskTap(
+                  title: "Investing",
+                  progressValue: 1.0,
+                  screen: InvestingTask()
                 ),
-                child: const Row(children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.redAccent,
-                      valueColor: AlwaysStoppedAnimation(Colors.green),
-                      strokeWidth: 10,
-                      value: 0.5,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Text(
-                      "Credit Building",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      size: 30,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-              child: Container(
-                width: 350,
-                height: 100,
-                  decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
+
+                TaskTap(
+                  title: "Retirement \nFund",
+                  progressValue: 1.0,
+                  screen: RetirementTask()
                 ),
-                child: const Row(children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.redAccent,
-                      valueColor: AlwaysStoppedAnimation(Colors.green),
-                      strokeWidth: 10,
-                      value: 0.9,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Text(
-                      "Credit Building",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      size: 30,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-              child: Container(
-                width: 350,
-                height: 100,
-                  decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
-                ),
-                child: const Row(children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(40, 0, 20, 0),
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.redAccent,
-                      valueColor: AlwaysStoppedAnimation(Colors.green),
-                      strokeWidth: 10,
-                      value: 0.2,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Text(
-                      "Credit Building",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      size: 30,
-                    ),
-                  ),
-                ]),
-              ),
-            ),
+    
+    
           ],
-        ));
+        ))
+      ]
+    );
   }
 }
