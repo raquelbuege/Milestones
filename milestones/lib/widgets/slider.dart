@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:milestones/task_screens/emergencyFundTask.dart';
+import 'package:provider/provider.dart';
 
 /// Flutter code sample for [Slider].
 
@@ -37,7 +39,15 @@ class _SliderExampleState extends State<SliderExample> {
         onChanged: (double value) {
           setState(() {
             _currentSliderValue = value;
-          });
+           Provider.of<SliderNotifier>(context, listen: false)
+                  .updateSliderValue(value);
+            
+            
+            },
+
+          );
+          context.read<CircularProgressNotifier>().updateProgress(value);
+
         },
 
     )
@@ -46,3 +56,17 @@ class _SliderExampleState extends State<SliderExample> {
     );
   }
 }
+
+
+
+class SliderNotifier extends ChangeNotifier {
+  double _sliderValue = 0.0; // Initial value of the slider
+
+  double get sliderValue => _sliderValue;
+
+  void updateSliderValue(double value) {
+    _sliderValue = value;
+    notifyListeners(); // Notify listeners about the change
+  }
+}
+

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:milestones/task_screens/emergencyFundTask.dart';
 import 'package:milestones/userVM.dart';
+import 'package:milestones/widgets/slider.dart';
 import 'package:provider/provider.dart';
 import 'home.dart';
 import 'navbar.dart';
@@ -9,10 +11,23 @@ import 'package:flutter/services.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider<UserViewModel>(
-      create: (context) => UserViewModel(), // Provide UserViewModel
+    // ChangeNotifierProvider<UserViewModel>(
+    //   create: {(context) => UserViewModel(), // Provide UserViewModel
+    //         (context) => SliderNotifier()}
+
+    //   child: MyApp(),
+    // ),
+
+     MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserViewModel()), // Provide UserViewModel
+        ChangeNotifierProvider(create: (context) => SliderNotifier()),
+                ChangeNotifierProvider(create: (context) => CircularProgressNotifier()),
+ // Provide SliderNotifier
+      ],
       child: MyApp(),
     ),
+  
   );
 
 }

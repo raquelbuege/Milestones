@@ -71,6 +71,7 @@ flutter:
     - assets/images/investingBadge_2.png
     - assets/images/retirementSavingBadge.png
     - assets/young-prof-background.gif
+    - assets/images/dorothy.png
 
   fonts:
     - family: MadeTommy

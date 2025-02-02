@@ -45,16 +45,15 @@ class _ProfileState extends State<Profile> {
                             fontSize: 42,
                             fontWeight: FontWeight.bold),
                         'Profile')),
-                const Row(
+                Row(
                   children: [
                     Padding(
-                        padding: EdgeInsets.fromLTRB(50, 10, 20, 0),
-                        child: Icon(
-                          Icons.person,
-                          color: Color(0xFF201515),
-                          size: 80,
-                        )),
-                    Column(
+                        padding: const EdgeInsets.fromLTRB(25, 10, 20, 0),
+                       child: Image.asset('assets/images/dorothy.png'   ,
+                       width: 130,
+                       height: 130),
+                    ),
+                    const Column(
                       children: [
                         Padding(
                             padding: EdgeInsets.fromLTRB(0, 10, 00, 0),
