@@ -90,12 +90,23 @@ final List<String> bulletPoints2 = [
                       height: 220,
                       child: Padding(
                         padding: EdgeInsets.all(30),
-                        child: CircularProgressIndicator(
-                          backgroundColor: Color(0xFFFDEFE2),
-                          valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
-                          strokeWidth: 60,
-                          value: totalCalculations(),
-                        ),
+                        // child: CircularProgressIndicator(
+                        //   backgroundColor: Color(0xFFFDEFE2),
+                        //   valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
+                        //   strokeWidth: 60,
+                        //   value: totalCalculations(),
+                        // ),
+                            // The Circular Progress Bar
+            child: Consumer<CircularProgressNotifier>(
+              builder: (context, progressNotifier, child) {
+                return CircularProgressIndicator(
+                  value: progressNotifier.progress / 2640, // Convert value to percentage (0 to 1)
+                  strokeWidth: 60.0,
+                  backgroundColor: Color(0xFFFDEFE2),
+                  valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
+                );
+              },
+            ),
                       )),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 30.0),
@@ -120,5 +131,23 @@ final List<String> bulletPoints2 = [
             )),
       ],
     );
+  }
+}
+
+
+class CircularProgressNotifier extends ChangeNotifier {
+  double _progress = 880.0;  // Default value (can be any number between 0 and 100)
+
+  double get progress => _progress;
+
+  void updateProgress(double value) {
+    _progress = value;
+    notifyListeners();  // Notify listeners when progress value changes
+  }
+
+  // Reset progress to default
+  void resetProgress() {
+    _progress = 880.0;  // Default value
+    notifyListeners();
   }
 }
