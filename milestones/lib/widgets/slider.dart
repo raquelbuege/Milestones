@@ -32,6 +32,7 @@ class _SliderExampleState extends State<SliderExample> {
  
   ),
      child: Slider(
+      activeColor: Color(0xFF724565),
         value: _currentSliderValue,
         max: 2640,
         divisions: 3,
