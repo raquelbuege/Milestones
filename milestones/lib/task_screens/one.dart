@@ -96,13 +96,13 @@ final List<String> bulletPoints2 = [
                     title: task1,
                     description: description1,
                     bulletPoints: bulletPoints1,
-                    progressValue: progressValue1,
+                    progressValue: user.hasCreditCard,
                   ),
                     TaskCard(
                     title: task2,
                     description: description2,
                     bulletPoints: bulletPoints2,
-                    progressValue: progressValue2,
+                    progressValue: user.hasCreditCard,
                   ),
                
                 ],

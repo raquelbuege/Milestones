@@ -11,37 +11,12 @@ class ProgressBar extends StatefulWidget {
 
 class _ProgressBarState extends State<ProgressBar> {
   bool isChecked = false;
-    double total = 0.0;
+
   @override
   Widget build(BuildContext context) {
     final userViewModel = Provider.of<UserViewModel>(context);
     final user = userViewModel.user; // Get user data
-    
-
-  double calculateTotalProgress() {
-      
-  
-        if (user.hasCreditCard! && user.above700!) {
-          total += 1;
-        }
-        else if (user.hasCreditCard! || user.above700!) {
-          total += 0.5;
-        }
-        if (user.isInvesting!) {
-          total += 1;
-        } 
-        if (user.has401k! && user.hasRothIRA!) {
-          total += 1;
-        }
-        else if (user.has401k! || user.hasRothIRA!) {
-          total += 0.5;
-        }
-       total += user.fundSaved! / (user.totalExpenses! * 3.0);
-       
-       return total/4.0;
-    }
-
-
+     //add pink background => link on profile and task page
     return Stack(
         clipBehavior: Clip.none,
         children: [
@@ -49,7 +24,7 @@ class _ProgressBarState extends State<ProgressBar> {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: LinearProgressIndicator(
-              value: (calculateTotalProgress()), // Your progress value
+              value: (user.totalProgress / 100), // Your progress value
               minHeight: 30, // Height of the progress bar
               backgroundColor: const Color.fromARGB(255, 253, 239, 226), 
               valueColor:
@@ -58,13 +33,13 @@ class _ProgressBarState extends State<ProgressBar> {
           ),
           // Icon overlayed on top of the progress bar (not inside it)
           Positioned(
-            left: (user.totalProgress / 100 * 400 - 53), // Position based on progress
+            left: (user.totalProgress / 100 * 400 - 47), // Position based on progress
             top: -27, // Adjust to place the icon above the bar
             child: Icon(
               Icons
                   .star_rate_rounded, // Replace with your desired icon
               color: Color.fromARGB(255, 170, 88, 100), // Set the icon color
-              size: 77, // Adjust icon size
+              size: 75, // Adjust icon size
             ),
           ),
         ],

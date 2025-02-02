@@ -38,6 +38,39 @@ class _TaskTapState extends State<TaskTap> {
 
   @override
   Widget build(BuildContext context) {
+    // Access UserModel from UserViewModel using Provider
+    final userViewModel = Provider.of<UserViewModel>(context);
+    final user = userViewModel.user; // Get user data
+
+    double calculateTotalProgress() {
+      if (widget.title == "Build Credit") {
+        if (user.hasCreditCard! && user.above700!) {
+          return 1.0;
+        }
+        if (user.hasCreditCard! || user.above700!) {
+          return 0.5;
+        }
+      } else if (widget.title == "Investing") {
+        if (user.isInvesting!) {
+          return 1.0;
+        } else {
+          return 0;
+        }
+      } else if (widget.title == "Retirement \nFund") {
+        if (user.has401k! && user.hasRothIRA!) {
+          return 1.0;
+        }
+        if (user.has401k! || user.hasRothIRA!) {
+          return 0.50;
+        }
+        return 0;
+      } else {
+        return user.fundSaved! / (user.totalExpenses! * 3.0);
+      }
+
+      return 0;
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Container(
@@ -59,12 +92,12 @@ class _TaskTapState extends State<TaskTap> {
                     backgroundColor: Colors.black12,
                     valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
                     strokeWidth: 25,
-                    value: 0.7,
+                    value: calculateTotalProgress(),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(8, 0, 20, 0),
+                padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                 child: Text(
                   widget.title,
                   style: TextStyle(
@@ -76,7 +109,7 @@ class _TaskTapState extends State<TaskTap> {
               ),
               Spacer(),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: IconButton(
                   enableFeedback: false,
                   onPressed: () {

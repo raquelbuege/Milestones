@@ -60,10 +60,30 @@ class Investing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     final String title = "Welcome to Flutter!";
     // Access UserModel from UserViewModel using Provider
     final userViewModel = Provider.of<UserViewModel>(context);
     final user = userViewModel.user; // Get user data
+
+
+  double progressVal(){
+    if(user.isInvesting == true){
+      return 1.0;
+    }else{
+      return 0;
+    }
+  }
+
+  double calculateTotalProgress(){
+    if(user.isInvesting!){
+      return 1.0;
+    }
+    return 0;
+  }
+
+
 
     return  ListView(
       children: [
@@ -81,7 +101,7 @@ class Investing extends StatelessWidget {
                           onPressed: () {Navigator.pop(context);},
                           icon: Icon(
                             Icons.arrow_back_ios_rounded,
-                            color:Color(0xFFFDEFE2),
+                            color:const Color.fromARGB(255, 197, 134, 134),
                             size: 45,
                           ))),
                   Container(
@@ -93,14 +113,14 @@ class Investing extends StatelessWidget {
                           backgroundColor: Color(0xFFFDEFE2),
                           valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
                           strokeWidth: 60,
-                          value: 0.7,
+                          value: calculateTotalProgress(),
                         ),
                       )),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 34.0),
                     child: Text(
                       style: TextStyle(
-                        color: Color(0xFFFDEFE2),
+                        color: const Color.fromARGB(255, 197, 134, 134),
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
                       ),
@@ -111,19 +131,21 @@ class Investing extends StatelessWidget {
                     title: task1,
                     description: description1,
                     bulletPoints: bulletPoints1,
-                    progressValue: 1,
+                    progressValue: user.isInvesting,
+                    checkMark: user.isInvesting,
                   ),
                   TaskCard(
                     title: task2,
                     description: description2,
                     bulletPoints: bulletPoints2,
-                    progressValue: progressValue2,
+                    progressValue: user.isInvesting,
+                    checkMark: user.isInvesting,
                   ),
                   TaskCard(
                     title: task3,
                     description: description3,
                     bulletPoints: bulletPoints3,
-                    progressValue: 1,
+                    progressValue: user.isInvesting,
                   ),
                 ],
               ),

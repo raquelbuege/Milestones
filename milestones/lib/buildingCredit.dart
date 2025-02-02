@@ -32,7 +32,7 @@ class BuildingCredit extends StatelessWidget {
                   value: 0.7,
                 ),
               )),
-          TaskCard(),
+          // TaskCard(),
         ],
       ),
     );

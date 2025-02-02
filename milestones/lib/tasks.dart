@@ -4,6 +4,8 @@ import 'package:milestones/task_screens/buildCredit.dart';
 import 'package:milestones/task_screens/emergencyFundTask.dart';
 import 'package:milestones/task_screens/investingTask.dart';
 import 'package:milestones/task_screens/retirementTask.dart';
+import 'package:milestones/widgets/agebar.dart';
+import 'package:milestones/widgets/progressbar.dart';
 import 'package:milestones/widgets/taskTap.dart';
 import 'circleprogress.dart';
 import 'package:arc_progress_bar_new/arc_progress_bar_new.dart';
@@ -21,30 +23,48 @@ class Tasks extends StatelessWidget {
             color: Color(0xFF201515),
         child: Column(
           children: [
-            const Padding(
-                padding: EdgeInsets.fromLTRB(20, 80, 20, 0),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
                     // Linear Progress Bar
-                    LinearProgressIndicator(
-                      value: 60 / 100, // Your progress value
-                      minHeight: 20, // Height of the progress bar
-                      backgroundColor: Colors.black12,
-                      valueColor: AlwaysStoppedAnimation(
-                          Color.fromARGB(255, 255, 255, 255)),
-                    ),
+                  Padding(
+                       padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Color.fromARGB(255, 197, 134, 134),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 7),
+                                child:const Column(
+                              children: [
+                                
+                                 
+                         
+                                SizedBox(height: 5),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 210, 0),
+                                  child: Text(
+                                    textAlign: TextAlign.left,
+                                    "Progress Bar", // Left-side label
+                                    style: TextStyle(
+                                      fontFamily: 'MadeTommy',
+                                      color: Color.fromARGB(255, 253, 239, 226),
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 1),
+                                ProgressBar(),
+                              ],
+                            )
+                              )
+                  ),
                     // Icon overlayed on top of the progress bar (not inside it)
-                    Positioned(
-                      left: 55 / 100 * 400 - 16, // Position based on progress
-                      top: -13, // Adjust to place the icon above the bar
-                      child: Icon(
-                        Icons.star, // Replace with your desired icon
-                        color: Color.fromARGB(
-                            255, 235, 201, 9), // Set the icon color
-                        size: 45, // Adjust icon size
-                      ),
-                    ),
+                    
                   ],
                 )),
                TaskTap(

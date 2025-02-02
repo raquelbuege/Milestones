@@ -31,7 +31,7 @@ class _CheckboxExampleState extends State<CheckboxExample> {
           fillColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.selected)) {
-                return Color(0xFF98A6D4); // Color when checked
+                return Color.fromARGB(255, 170, 88, 100); // Color when checked
               }
               return Colors.white; // Color when unchecked (removes outline)
             },

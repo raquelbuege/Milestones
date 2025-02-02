@@ -57,6 +57,17 @@ final List<String> bulletPoints2 = [
     final userViewModel = Provider.of<UserViewModel>(context);
     final user = userViewModel.user; // Get user data
 
+    double calculateTotalProgress(){
+      if(user.has401k! && user.hasRothIRA!){
+        return 1.0;
+      }
+      if(user.has401k! || user.hasRothIRA!){
+        return 0.50;
+      }
+      return 0;
+    }
+
+
     return 
     
     ListView(
@@ -76,7 +87,7 @@ final List<String> bulletPoints2 = [
                           onPressed: () {  Navigator.pop(context);},
                           icon: Icon(
                             Icons.arrow_back_ios_rounded,
-                            color:Color(0xFFFDEFE2),
+                            color:const Color.fromARGB(255, 197, 134, 134),
                             size: 45,
                           ))),
                   Container(
@@ -88,7 +99,7 @@ final List<String> bulletPoints2 = [
                           backgroundColor: Color(0xFFFDEFE2),
                           valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
                           strokeWidth: 60,
-                          value: 0.7,
+                          value: calculateTotalProgress(),
                         ),
                       )),
                   Padding(
@@ -106,13 +117,15 @@ final List<String> bulletPoints2 = [
                     title: task1,
                     description: description1,
                     bulletPoints: bulletPoints1,
-                    progressValue: progressValue1,
+                    progressValue: user.has401k,
+                    checkMark: user.has401k,
                   ),
                     TaskCard(
                     title: task2,
                     description: description2,
                     bulletPoints: bulletPoints2,
-                    progressValue: progressValue2,
+                    progressValue: user.hasRothIRA,
+                    checkMark: user.hasRothIRA,
                   ),
                
                 ],

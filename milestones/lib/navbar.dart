@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:milestones/Profile.dart';
 // import 'package:milestones/task_screens/buildingCredit.dart';
 import 'package:milestones/home.dart';
@@ -12,6 +13,15 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
+  @override
+  void initState() {
+    super.initState();
+    // Set the status bar to be transparent on the first screen
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Transparent status bar
+      statusBarIconBrightness: Brightness.dark, // Icon brightness (light or dark)
+    ));
+  }
   int pageIndex = 0;
 
   final pages = [
