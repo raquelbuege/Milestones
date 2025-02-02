@@ -23,13 +23,20 @@ class _BadgesState extends State<Badges> {
           const SizedBox(
             width: 300,
             height: 40,
-            child: Text(
+            child: 
+            
+            Padding(
+             padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
+              child:Text(
               "Badges",
+              textAlign: TextAlign.center, 
               style: TextStyle(
+                
                 fontFamily: 'MadeTommy',
                 fontSize: 26,
                 //fontWeight: FontWeight.bold,
               ),
+            ),
             ),
           ),
           SizedBox(

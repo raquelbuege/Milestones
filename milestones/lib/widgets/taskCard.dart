@@ -10,13 +10,16 @@ class TaskCard extends StatefulWidget {
   final String description;
   final List<String>
       bulletPoints; // Change this to accept a List of Strings (bullet points)
-  final double progressValue;
+  final bool? progressValue;
+  final bool? checkMark;
 
   TaskCard(
       {required this.title,
       required this.description,
       required this.bulletPoints,
-      required this.progressValue});
+    this.progressValue,
+    this.checkMark
+    });
 
   @override
   _TaskCardState createState() => _TaskCardState();
@@ -25,9 +28,12 @@ class TaskCard extends StatefulWidget {
 class _TaskCardState extends State<TaskCard> {
   bool isChecked = false; // This will store the checkbox state
 
-  double progressValue() {
+  double progressVal() {
     if (isChecked == true) {
       return 1.0;
+    }
+    if(widget.progressValue == true){
+       return 1.0;
     }
     return 0.0;
   }
@@ -69,8 +75,8 @@ class _TaskCardState extends State<TaskCard> {
                   child: SizedBox(
                 width: 310,
                 child: TweenAnimationBuilder(
-                  tween: Tween<double>(begin: 0.0, end: progressValue()),
-                  duration: Duration(seconds: 3), // Duration for the animation
+                  tween: Tween<double>(begin: 0.0, end: progressVal()),
+                  duration: Duration(seconds: 1), // Duration for the animation
                   builder: (context, value, child) {
                     return LinearProgressIndicator(
                       value: value, // The animated value
@@ -91,7 +97,7 @@ class _TaskCardState extends State<TaskCard> {
                     child: Row(
                       children: [
                         CheckboxExample(
-                          initialChecked: isChecked, // Pass initial state
+                          initialChecked: widget.checkMark ?? false, // Pass initial state
                           onChanged: handleCheckboxChange,
                         ),
                         Text(
@@ -116,7 +122,7 @@ class _TaskCardState extends State<TaskCard> {
                   widget.description,
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Coolvetica',
+                     fontFamily: 'MadeTommy',
                     color: Color.fromARGB(255, 53, 45, 57),
                   ),
                 ),
@@ -138,7 +144,7 @@ class _TaskCardState extends State<TaskCard> {
                   trimExpandedText: 'Show less',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Coolvetica',
+                     fontFamily: 'MadeTommy',
                     color: Color.fromARGB(255, 53, 45, 57),
                   ),
                 ),

@@ -57,6 +57,12 @@ final List<String> bulletPoints2 = [
     final userViewModel = Provider.of<UserViewModel>(context);
     final user = userViewModel.user; // Get user data
 
+    double totalCalculations(){
+      return user.fundSaved!/(user.totalExpenses! * 3.0);
+
+    }
+
+
     return 
     
     ListView(
@@ -88,18 +94,18 @@ final List<String> bulletPoints2 = [
                           backgroundColor: Color(0xFFFDEFE2),
                           valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
                           strokeWidth: 60,
-                          value: 0.7,
+                          value: totalCalculations(),
                         ),
                       )),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 34.0),
+                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 30.0),
                     child: Text(
                       style: TextStyle(
-                        color: Color(0xFFFDEFE2),
+                        color: const Color.fromARGB(255, 197, 134, 134), //Color(0xffC4DFCB),
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
                       ),
-                      'Build Emergency Fund',
+                      'Emergency Fund',
                     ),
                   ),
                   EmergencyTaskCard(

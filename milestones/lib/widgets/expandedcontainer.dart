@@ -97,7 +97,7 @@ class _ExpansionTileExampleState extends State<ExpansionTileExample> {
                           child: Text(
                             'Growth Phase:',
                             style: TextStyle(
-                                fontFamily: 'CreatoDisplay', // Use a different font
+                                  fontFamily: 'MadeTommy',
                                 fontWeight: FontWeight.w500,
                                 // fontStyle: FontStyle.italic,
                                 fontSize: 20, // Adjust font size
@@ -141,8 +141,8 @@ class _ExpansionTileExampleState extends State<ExpansionTileExample> {
                             ListTile(title: Text(
                               'The Young Professional Financial Growth Phase is foundational for building habits that will shape future financial success. By focusing on managing debt, saving, investing early, and learning about personal finances, young professionals set themselves up for greater financial stability and growth in the coming years.',
                               style: TextStyle(
+                                  fontFamily: 'CreatoDisplay',
                                   fontSize: 20, // Adjust font size
-                                  fontWeight: FontWeight.normal, // Make text bold
                                   color: Color.fromARGB(255, 253, 239, 226), // Set text color
                                 ),
                               )

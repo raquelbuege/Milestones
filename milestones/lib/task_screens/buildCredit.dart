@@ -34,7 +34,10 @@ class BuildingCredit extends StatelessWidget {
   final double progressValue1 = 1;
   final double progressValue2 = 1;
 
-  final String task2 = "Task 2: Mantain a 700+ Score ";
+
+ 
+
+  final String task2 = "Task 2: Mantain a \n700+ Score ";
   final String subtext2 =
       "Aim for a credit score of 700+ to unlock better financial opportunities:";
 
@@ -46,10 +49,30 @@ class BuildingCredit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final String title = "Welcome to Flutter!";
     // Access UserModel from UserViewModel using Provider
     final userViewModel = Provider.of<UserViewModel>(context);
     final user = userViewModel.user; // Get user data
+  
+  
+  double progressVal(){
+    if(user.hasCreditCard == true){
+      return 1.0;
+    }else{
+      return 0;
+    }
+  }
+
+  double calculateTotalProgress(){
+    if(user.hasCreditCard! && user.above700!){
+      return 1.0;
+    }
+    if(user.hasCreditCard! || user.above700!){
+      return 0.5;
+    }
+    return 0;
+  }
 
     return ListView(
       children: [
@@ -69,7 +92,7 @@ class BuildingCredit extends StatelessWidget {
           },
                           icon: Icon(
                             Icons.arrow_back_ios_rounded,
-                            color:Color(0xFFFDEFE2),
+                            color:const Color.fromARGB(255, 197, 134, 134),
                             size: 45,
                           ))),
                   Container(
@@ -81,14 +104,14 @@ class BuildingCredit extends StatelessWidget {
                           backgroundColor: Color(0xFFFDEFE2),
                           valueColor: AlwaysStoppedAnimation(Color(0xFF724565)),
                           strokeWidth: 60,
-                          value: 0.7,
+                          value: calculateTotalProgress()
                         ),
                       )),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 30.0, 30.0),
+                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 30.0),
                     child: Text(
                       style: TextStyle(
-                        color: Color(0xFFFDEFE2),
+                        color:const Color.fromARGB(255, 197, 134, 134), //Color(0xffC4DFCB),
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
                       ),
@@ -99,13 +122,15 @@ class BuildingCredit extends StatelessWidget {
                     title: task1,
                     description: description1,
                     bulletPoints: bulletPoints1,
-                    progressValue: progressValue1,
+                    progressValue: user.hasCreditCard,
+                    checkMark: user.hasCreditCard,
                   ),
                   TaskCard(
                     title: task2,
                     description: subtext2,
                     bulletPoints: bulletPoints2,
-                    progressValue: progressValue2,
+                    progressValue: user.above700,
+                    checkMark: user.above700,
                   ),
                 ],
               ),

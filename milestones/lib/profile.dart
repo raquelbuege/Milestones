@@ -51,7 +51,7 @@ class _ProfileState extends State<Profile> {
                         padding: EdgeInsets.fromLTRB(50, 10, 20, 0),
                         child: Icon(
                           Icons.person,
-                          color: Color(0xFF8E93A6),
+                          color: Color(0xFF201515),
                           size: 80,
                         )),
                     Column(
@@ -60,24 +60,27 @@ class _ProfileState extends State<Profile> {
                             padding: EdgeInsets.fromLTRB(0, 10, 00, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFFDEFE2),
-                                  fontSize: 20,
+                                  fontFamily: 'MadeTommy',
+                                    color: Color.fromARGB(255, 253, 239, 226),
+                                    fontSize: 20,
                                 ),
                                 'Name: Dorothy Crow')),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 120, 0),
+                            padding: EdgeInsets.fromLTRB(0, 10, 130, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFFDEFE2),
-                                  fontSize: 20,
+                                   fontFamily: 'MadeTommy',
+                                    color: Color.fromARGB(255, 253, 239, 226),
+                                    fontSize: 20,
                                 ),
                                 'Age: 21')),
                         Padding(
                             padding: EdgeInsets.fromLTRB(0, 10, 45, 0),
                             child: Text(
                                 style: TextStyle(
-                                  color: Color(0xFFFDEFE2),
-                                  fontSize: 20,
+                               fontFamily: 'MadeTommy',
+                                    color: Color.fromARGB(255, 253, 239, 226),
+                                    fontSize: 20,
                                 ),
                                 'Gender: Woman'))
                       ],
@@ -86,7 +89,36 @@ class _ProfileState extends State<Profile> {
                 ),
                 Padding(
                     padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-                    child: ProgressBar()),
+                    child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Color.fromARGB(255, 197, 134, 134),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 7),
+                                child:const Column(
+                              children: [
+                                
+                                 
+                         
+                                SizedBox(height: 5),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 210, 0),
+                                  child: Text(
+                                    textAlign: TextAlign.left,
+                                    "Progress Bar", // Left-side label
+                                    style: TextStyle(
+                                      fontFamily: 'MadeTommy',
+                                      color: Color.fromARGB(255, 253, 239, 226),
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 1),
+                                ProgressBar(),
+                              ],
+                            )
+                              )),
                 Padding(
                     padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
                     child: Badges()),
@@ -94,38 +126,51 @@ class _ProfileState extends State<Profile> {
                     child: Padding(
                   padding: EdgeInsets.fromLTRB(0, 25, 00, 0),
                   child: Container(
-                      width: 340,
-                      height: 350,
+                      width: 370,
+                      height: 305,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                             12), // Optional rounded corners
                         color:Color(0xFFFDEFE2), // Background color
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 20, 00, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 10, 00, 0),
                         child: Column(
                           children: [
-          Text(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 100, 0),
+            child: Text(
+             textAlign: TextAlign.left,
                         style: TextStyle(
                             color: Color(0xFFC58686),
                             fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                        'Financial Goals'),   
+
+                              fontFamily: 'MadeTommy',
+                            
+                            )
+                            
+                            ,
+                        'Financial Goals')
+          ),  
 
                             Row(
                               children: [
+                                
                                    CheckboxExample(
+
                                   // Pass the state down
-                                  initialChecked: isChecked,
+                                  initialChecked: true,
                                   onChanged:
                                       _updateCheckboxState, // Pass the function to update state
                                 ),
+                                
                                 const Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 5),
                                     child: Text(
                                         style: TextStyle(
-                                          color: Color(0xFF36395F),
+                                          color:Color(0xFF201515),
                                           fontSize: 22,
+                                          fontFamily: 'MadeTommy',
                                         ),
                                         'Building Credit')),
                               ],
@@ -134,7 +179,7 @@ class _ProfileState extends State<Profile> {
                               children: [
                                    CheckboxExample(
                                   // Pass the state down
-                                  initialChecked: isChecked,
+                                  initialChecked: true,
                                   onChanged:
                                       _updateCheckboxState, // Pass the function to update state
                                 ),
@@ -142,8 +187,9 @@ class _ProfileState extends State<Profile> {
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
-                                          color: Color(0xFF36395F),
+                                          color: Color(0xFF201515),
                                           fontSize: 22,
+                                          fontFamily: 'MadeTommy',
                                         ),
                                         'Retirement Set Up')),
                               ],
@@ -152,7 +198,7 @@ class _ProfileState extends State<Profile> {
                               children: [
                                 CheckboxExample(
                                   // Pass the state down
-                                  initialChecked: isChecked,
+                                  initialChecked: true,
                                   onChanged:
                                       _updateCheckboxState, // Pass the function to update state
                                 ),
@@ -160,17 +206,18 @@ class _ProfileState extends State<Profile> {
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
-                                          color: Color(0xFF36395F),
+                                          color: Color(0xFF201515),
                                           fontSize: 22,
+                                          fontFamily: 'MadeTommy',
                                         ),
-                                        'Stocks')),
+                                        'Investing')),
                               ],
                             ),
                             Row(
                               children: [
                                    CheckboxExample(
                                   // Pass the state down
-                                  initialChecked: isChecked,
+                                  initialChecked: true,
                                   onChanged:
                                       _updateCheckboxState, // Pass the function to update state
                                 ),
@@ -178,8 +225,9 @@ class _ProfileState extends State<Profile> {
                                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                     child: Text(
                                         style: TextStyle(
-                                          color: Color(0xFF36395F),
+                                          color: Color(0xFF201515),
                                           fontSize: 22,
+                                          fontFamily: 'MadeTommy',
                                         ),
                                         'Emergency Fund')),
                               ],
@@ -193,11 +241,13 @@ class _ProfileState extends State<Profile> {
                                       _updateCheckboxState, // Pass the function to update state
                                 ),
                                 const Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    padding: EdgeInsets.fromLTRB(10, 0, 0,0),
                                     child: Text(
                                         style: TextStyle(
-                                          color: Color(0xFF36395F),
+                                          color:Color(0xFF201515),
+                             
                                           fontSize: 22,
+                                          fontFamily: 'MadeTommy',
                                         ),
                                         'Mortage')),
                               ],

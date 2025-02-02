@@ -16,9 +16,9 @@ class UserViewModel extends ChangeNotifier{
   bool has401k = false;
 
   bool completedFund = false;
-  int totalExpenses = 850;
-  int fundNeeded = 2550; //850 * 3
-  double fundSaved = 460;
+  int totalExpenses = 880;
+  int fundNeeded = 2640; //850 * 3
+  double fundSaved = 880;
   double fundProg = 18.03; //460 / 2550 
 
   bool isInvesting = false; 

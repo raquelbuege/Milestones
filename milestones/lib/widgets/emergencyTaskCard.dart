@@ -55,7 +55,7 @@ class _TaskCardState extends State<EmergencyTaskCard> {
     return Padding(
       padding: EdgeInsets.fromLTRB(10, 0, 10, 20),
       child: Container(
-        width: 360,
+        width: 370,
         decoration: BoxDecoration(
           color: Color(0xFFFDEFE2),
           border: Border.all(
@@ -117,7 +117,7 @@ class _TaskCardState extends State<EmergencyTaskCard> {
               Row(
               children:[
                 Padding(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: Text(
                       "Monthly Expenses: ",
                       style: TextStyle(
@@ -126,11 +126,10 @@ class _TaskCardState extends State<EmergencyTaskCard> {
                       ),
                     ),
                   ),Padding(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: Text(
                       "\$800",
                       style: TextStyle(
-                         fontWeight: FontWeight.bold,
                         fontSize: 18,
 
                         color: Color.fromARGB(255, 47, 37, 41),
@@ -155,7 +154,6 @@ class _TaskCardState extends State<EmergencyTaskCard> {
                     child: Text(
                       "\$2,640",
                       style: TextStyle(
-                         fontWeight: FontWeight.bold,
                         fontSize: 18,
 
                         color: Color.fromARGB(255, 47, 37, 41),
